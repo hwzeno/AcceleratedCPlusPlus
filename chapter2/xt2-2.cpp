@@ -10,14 +10,14 @@ int main()
 	const std::string greeting = "Hello," + name + "!";
 	
 	/*空格行数*/
-	const int pad = 1;
-
+	const int pad = 5;
+	int flag = 0;
 	const int rows = pad * 2 +3;
 	const std::string::size_type cols = greeting.size() + pad * 2 + 2;
 
 	std::cout << std::endl;
 
-	for(int r = 0; r != rows; ++r)
+	for(int r = 0; r < rows; ++r)
 	{
 		std::string::size_type c = 0;
 		
@@ -31,11 +31,37 @@ int main()
 			}
 			else
 			{
-				if(r == 0 || r == rows - 1 || c == 0 || c == cols -1)
-					std::cout << "*";
+				if(r <= pad + 1)
+				{
+				/*打印上边图案*/
+					if(c < cols/2 - r || c > cols/2 + r)
+					{
+						std::cout << "*";
+						c++;
+					}
+					else
+					{
+						std::cout << " ";
+						c++;
+					}
+					flag = 
+
+
+				}
 				else
-					std::cout << " ";
-				++c;
+				{
+				/*打印下半边图案*/
+					if(c > cols - r || c > cols/2 + r)
+					{
+						std::cout << " ";
+						c++;
+					}
+					else
+					{
+						std::cout << "*";
+						++c;
+					}
+				}
 			}
 		}
 		std::cout << std::endl;
