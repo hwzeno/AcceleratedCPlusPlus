@@ -17,7 +17,7 @@ int main()
 
 	std::cout << std::endl;
 
-	for(int r = 0; r != rows; ++r)
+	for(int r = 0; r < rows; ++r)
 	{
 		std::string::size_type c = 0;
 		

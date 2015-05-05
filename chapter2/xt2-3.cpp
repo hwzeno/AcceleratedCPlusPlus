@@ -2,6 +2,11 @@
 #include<string>
 int main()
 {
+	/*空格行数*/
+	int pad = 0;
+	std::cout << "Input padding:";
+	std::cin >>pad ;
+	/*获取空格行数*/
 	std::cout << "Please enter your name:";
 	std::string name;
 	std::cin >> name;
@@ -9,13 +14,13 @@ int main()
 	/*构造问候语*/
 	const std::string greeting = "Hello," + name + "!";
 	
-	/*空格行数*/
-	const int pad = 5;
+
 	const int rows = pad * 2 +3;
 	const std::string::size_type cols = greeting.size() + pad * 2 + 2;
+
 	std::cout << std::endl;
 
-	for(int r = 0; r < rows; ++r)
+	for(int r = 0; r != rows; ++r)
 	{
 		std::string::size_type c = 0;
 		
@@ -29,16 +34,11 @@ int main()
 			}
 			else
 			{
-					if( c < cols/2 - r || c > cols/2 + r)
-					{
-						std::cout << "*";
-						c++;
-					}
-					else
-					{
-						std::cout << " ";
-						c++;
-					}
+				if(r == 0 || r == rows - 1 || c == 0 || c == cols -1)
+					std::cout << "*";
+				else
+					std::cout << " ";
+				++c;
 			}
 		}
 		std::cout << std::endl;
